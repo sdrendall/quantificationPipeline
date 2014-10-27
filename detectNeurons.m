@@ -20,6 +20,7 @@ mask = imdilate(mask, strel('disk', 5));
 
 %% Watershed
 f2 = fspecial('disk', 18);
+wIm = zeros(size(nIm), 'single');
 wIm = imfilter(nIm, f2);
 wIm(~mask) = -Inf;
 wIm = watershed(wIm);
